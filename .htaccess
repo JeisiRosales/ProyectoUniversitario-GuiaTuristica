@@ -1,0 +1,22 @@
+Options +FollowSymLinks
+AddDefaultCharset utf-8
+#Bloquea acceso por directorios
+Options All -Indexes 
+
+#Activa el modo rescritura
+RewriteEngine On
+
+# Página personalizada para errores 404
+ErrorDocument 404 /infomargarita/views/templates/page404.php
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#ErrorDocument 500 /infomargarita/views/templates/page404.php
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+
+
+
+
